@@ -38,15 +38,11 @@ export const part2 = (inputs: Array<string>): string =>
     .reduce(
       (acc: [Horizontal, Depth, Aim], { direction, units }: Input): [Horizontal, Depth, Aim] => 
         direction === 'up'
-          // increases aim by X units
           ? [acc[0], acc[1], (acc[2] + units) as Aim]
         : direction === 'down'
-          // decreases aim by X units 
           ? [acc[0], acc[1], (acc[2] - units) as Aim]
         : [
-            // increases horizontal position by X units
             (acc[0] - units) as Horizontal,
-            // increases depth by aim multiplied by X
             (acc[1] + acc[2]*units) as Depth,
             acc[2]
           ],
