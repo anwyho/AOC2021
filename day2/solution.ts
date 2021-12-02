@@ -1,40 +1,56 @@
+type Direction = 'up' | 'down' | 'forward'
+type Units = number
+interface Input {
+  direction: Direction;
+  units: Units;
+}
+
 type Horizontal = number
 type Depth = number
 type Aim = number
 
 export const part1 = (inputs: Array<string>): string => 
   inputs
+    .map((input: string): Input => {
+      return { 
+        direction: input.split(' ')[0] as Direction,
+        units: parseInt(input.split(' ')[1]),
+      }
+    })
     .reduce(
-      (acc: [Depth, Horizontal], input: string): [Depth, Horizontal] => 
-        'up' === input.split(' ')[0]
-          ? [acc[0] - parseInt(input.split(' ')[1]), acc[1]]
-          : ('down' === input.split(' ')[0]) 
-            ? [acc[0] + parseInt(input.split(' ')[1]), acc[1]]
-            : [acc[0], acc[1] + parseInt(input.split(' ')[1])],
-      [0, 0]
+      (acc: [Horizontal, Depth], { direction, units }: Input): [Horizontal, Depth] => 
+        direction === 'up' ? [acc[0], acc[1] - units]
+        : direction === 'down' ? [acc[0], acc[1] + units]
+        : [acc[0] + units, acc[1]],
+      [0, 0] as [Horizontal, Depth]
     )
-
-    .reduce((depth: Depth, horizontal: Horizontal): number => depth*horizontal)
+    .reduce((h: Horizontal, d: Depth): number => h * d)
     .toString()
 
 export const part2 = (inputs: Array<string>): string => 
   inputs
+    .map((input: string): Input => {
+      return { 
+        direction: input.split(' ')[0] as Direction,
+        units: parseInt(input.split(' ')[1]),
+      }
+    })
     .reduce(
-      (acc: [Depth, Horizontal, Aim], input: string): [Depth, Horizontal, Aim] => 
-        'up' === input.split(' ')[0]
+      (acc: [Horizontal, Depth, Aim], { direction, units }: Input): [Horizontal, Depth, Aim] => 
+        direction === 'up'
           // increases aim by X units
-          ? [acc[0], acc[1], acc[2] + parseInt(input.split(' ')[1])] 
-          : ('down' === input.split(' ')[0]) 
-            // decreases aim by X units 
-            ? [acc[0], acc[1], acc[2] - parseInt(input.split(' ')[1])] 
-            : [
-              // increases depth by aim multiplied by X
-              acc[0] - parseInt(input.split(' ')[1]), 
-              // increases horizontal position by X units
-              acc[1] + acc[2]*parseInt(input.split(' ')[1]), 
-              acc[2]
-            ],
-      [0, 0, 0]
+          ? [acc[0], acc[1], (acc[2] + units) as Aim]
+        : direction === 'down'
+          // decreases aim by X units 
+          ? [acc[0], acc[1], (acc[2] - units) as Aim]
+        : [
+            // increases horizontal position by X units
+            (acc[0] - units) as Horizontal,
+            // increases depth by aim multiplied by X
+            (acc[1] + acc[2]*units) as Depth,
+            acc[2]
+          ],
+      [0, 0, 0] as [Horizontal, Depth, Aim]
     )
     .slice(0,2)
     .reduce((depth: Depth, horizontal: Horizontal): number => depth*horizontal)
