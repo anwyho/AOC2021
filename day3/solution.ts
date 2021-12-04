@@ -2,8 +2,9 @@ type GammaRateBuilder = string
 type EpsilonRateBuilder = string
 type Bit = '0' | '1'
 
-// onesDeltas returns an array of numbers representing the delta of '1's to '0's. 
+// onesDeltas returns an array of numbers representing the delta of '1's to '0's for every index in the inputs. 
 // E.g. if a value is 12, there were 12 more '1's at that index in all inputs; but if a value is 0, there were the same number of '1's and '0's at that index.
+// The return value for inputs of 6 bits will look something like `[-2, 34, 0, 17, -5, 1]`.
 const onesDeltas = (inputs: Array<string>): Array<number> => 
   inputs.reduce(
     (acc: Array<number>, input: string): Array<number> => 
