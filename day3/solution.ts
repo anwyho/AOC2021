@@ -5,10 +5,10 @@ export const part1 = (inputs: Array<string>): string =>
   inputs.reduce(
     (acc: Array<number>, input: string): Array<number> => 
       acc.map(
-        (onesFreq: number, i: number) => input[i] === '1' ? onesFreq+1 : onesFreq
+        (onesFreq: number, i: number) => 
+          input[i] === '1' ? onesFreq+1 : onesFreq
       ),
     new Array(inputs[0].length).fill(0)
-  // ).map(v => { console.log(v); return v }
   ).reduce(
     (
       acc: [GammaRateBuilder, EpsilonRateBuilder], 
@@ -20,9 +20,11 @@ export const part1 = (inputs: Array<string>): string =>
         ? [acc[0]+'1', acc[1]+'0']
         : [acc[0]+'0', acc[1]+'1'],
     ['', ''] as [GammaRateBuilder, EpsilonRateBuilder]
-  // ).map(v => { console.log(v); return v }
   ).reduce(
-    (erb: EpsilonRateBuilder, grb: GammaRateBuilder): string => (parseInt(erb, 2)*parseInt(grb, 2)).toString()
+    (erb: EpsilonRateBuilder, grb: GammaRateBuilder): string => 
+      (parseInt(erb, 2)*parseInt(grb, 2)).toString()
   )
+
+// ).map(v => { console.log(v); return v }
 
 export const part2 = (inputs: Array<string>): string => { return inputs[0] }
