@@ -1,4 +1,5 @@
-import { readInputs } from './helpers';
+import * as fs from 'fs'
+
 import * as d1 from './day1/solution';
 import * as d2 from './day2/solution';
 import * as d3 from './day3/solution';
@@ -27,8 +28,11 @@ import * as d3 from './day3/solution';
 
 
 // solutions.ts template
-// export const part1 = (inputs: Array<string>): string => { return inputs[0] }
-// export const part2 = (inputs: Array<string>): string => { return inputs[0] }
+export const part1 = (inputs: Array<string>): string => { return inputs[0] }
+export const part2 = (inputs: Array<string>): string => { return inputs[0] }
+
+const readInputs = (path: string): Array<string> => 
+  fs.readFileSync(path, {encoding:'utf8', flag:'r'}).split('\n')
 
 const day1 = (): void => {
   const inputs = readInputs('./day1/inputs.txt');
