@@ -1,3 +1,9 @@
+// @ts-ignore
+export const part1 = ins => ins.reduce((acc, input) => acc.map((delta, i) => input[i] === '1' ? delta+1 : delta-1), new Array(ins[0].length).fill(0)).reduce((acc, delta) => delta > 0 ? [acc[0]+'1', acc[1]+'0'] : [acc[0]+'0', acc[1]+'1'], ['', '']).reduce((e, g) => (parseInt(e, 2) * parseInt(g, 2)).toString())
+
+// @ts-ignore
+export const part2 = ins => ins[0].split('').reduce((filterAcc, _bit, bitIndex) => [filterAcc[0].filter((input, _i, remain) => filterAcc[0].length === 1 || (remain.reduce((acc, input) => acc.map((delta, i) => input[i] === '1' ? delta+1 : delta-1), new Array(remain[0].length).fill(0))[bitIndex] >= 0 ? '1' : '0') === input[bitIndex]), filterAcc[1].filter((input, _i, remain) => filterAcc[1].length === 1 || (remain.reduce((acc, input) => acc.map((delta, i) => input[i] === '1' ? delta+1 : delta-1), new Array(remain[0].length).fill(0))[bitIndex] >= 0 ? '1' : '0') !== input[bitIndex])], [ins, ins]).flat().reduce((co2, o2) => (parseInt(co2, 2) * parseInt(o2, 2)).toString())
+
 type GammaRateBuilder = string
 type EpsilonRateBuilder = string
 type Bit = '0' | '1'
@@ -60,9 +66,3 @@ export const part2Expansion = (inputs: Array<string>): string =>
     (co2: string, o2: string): string => 
       (parseInt(co2, 2) * parseInt(o2, 2)).toString()
   )
-
-// @ts-ignore
-export const part1 = ins => ins.reduce((acc, input) => acc.map((delta, i) => input[i] === '1' ? delta+1 : delta-1), new Array(ins[0].length).fill(0)).reduce((acc, delta) => delta > 0 ? [acc[0]+'1', acc[1]+'0'] : [acc[0]+'0', acc[1]+'1'], ['', '']).reduce((e, g) => (parseInt(e, 2) * parseInt(g, 2)).toString())
-
-// @ts-ignore
-export const part2 = (ins) => ins[0].split('').reduce((filterAcc, _bit, bitIndex) => [filterAcc[0].filter((input, _i, remain): boolean => filterAcc[0].length === 1 || (remain.reduce((acc, input) => acc.map((delta, i) => input[i] === '1' ? delta+1 : delta-1), new Array(remain[0].length).fill(0))[bitIndex] >= 0 ? '1' : '0') === input[bitIndex]), filterAcc[1].filter((input, _i, remain): boolean => filterAcc[1].length === 1 || (remain.reduce((acc, input) => acc.map((delta, i) => input[i] === '1' ? delta+1 : delta-1), new Array(remain[0].length).fill(0))[bitIndex] >= 0 ? '1' : '0') !== input[bitIndex])], [ins, ins]).flat().reduce((co2, o2) => (parseInt(co2, 2) * parseInt(o2, 2)).toString())
