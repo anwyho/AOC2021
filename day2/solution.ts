@@ -9,7 +9,7 @@ type Horizontal = number
 type Depth = number
 type Aim = number
 
-const part1Expansion = (inputs: Array<string>): string => 
+export const part1Expansion = (inputs: Array<string>): string => 
   inputs
     .map((input: string): Input => {
       return { 
@@ -27,7 +27,7 @@ const part1Expansion = (inputs: Array<string>): string =>
     .reduce((h: Horizontal, d: Depth): number => h * d)
     .toString()
 
-const part2Expansion = (inputs: Array<string>): string => 
+export const part2Expansion = (inputs: Array<string>): string => 
   inputs
     .map((input: string): Input => {
       return { 

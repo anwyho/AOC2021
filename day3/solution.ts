@@ -16,7 +16,7 @@ const onesDeltas = (inputs: Array<string>): Array<number> =>
 // defers to '1'
 const mostCommonBit = (delta: number): Bit => delta >= 0 ? '1' : '0'
 
-const part1Expansion = (inputs: Array<string>): string => 
+export const part1Expansion = (inputs: Array<string>): string => 
   onesDeltas(inputs).reduce(
     (
       acc: [GammaRateBuilder, EpsilonRateBuilder], 
@@ -34,7 +34,7 @@ const part1Expansion = (inputs: Array<string>): string =>
 type O2Diagnostics = string
 type CO2Diagnostics = string
 
-const part2Expansion = (inputs: Array<string>): string => 
+export const part2Expansion = (inputs: Array<string>): string => 
   inputs[0].split('').reduce(
     (
       filterAcc: [O2Diagnostics[], CO2Diagnostics[]],
@@ -45,12 +45,12 @@ const part2Expansion = (inputs: Array<string>): string =>
         filterAcc[0].filter(
           (input: O2Diagnostics, _i: number, remain: O2Diagnostics[]): boolean => 
             filterAcc[0].length === 1 || 
-              ((onesDeltas(remain)[bitIndex] >= 0 ? '1' : '0') === input[bitIndex])
+              (mostCommonBit(onesDeltas(remain)[bitIndex]) === input[bitIndex])
         ),
         filterAcc[1].filter(
           (input: CO2Diagnostics, _i: number, remain: CO2Diagnostics[]): boolean => 
             filterAcc[1].length === 1 || 
-              ((onesDeltas(remain)[bitIndex] >= 0 ? '1' : '0') !== input[bitIndex])
+              (mostCommonBit(onesDeltas(remain)[bitIndex]) !== input[bitIndex])
         ),
       ],
     [inputs, inputs] as [O2Diagnostics[], CO2Diagnostics[]]

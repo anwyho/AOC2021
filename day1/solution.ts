@@ -1,12 +1,12 @@
 const sumStrings = (strs: Array<string>): number => 
   strs.reduce((acc: number, s: string) => acc + parseInt(s), 0)
 
-const part1Expansion = (inputs: Array<string>): string =>
+export const part1Expansion = (inputs: Array<string>): string =>
   inputs.filter((_value: string, i: number, array: Array<string>) =>
     i >= 1 && parseInt(array[i-1]) < parseInt(array[i])
   ).length.toString()
 
-const part2Expansion = (inputs: Array<string>): string =>
+export const part2Expansion = (inputs: Array<string>): string =>
   inputs.filter((_value: string, i: number, array: Array<string>) =>
     i >= 3 && sumStrings(array.slice(i-3,i)) < sumStrings(array.slice(i-2,i+1))
   ).length.toString()
