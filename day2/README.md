@@ -1,12 +1,12 @@
 # Day 2
 
-Using TypeScript `type`s is quite nice for reasoning and type-checking. Last year I really enjoyed using Go for that reason; the type hints allow me to constantly verify or be reminded of what I'm working with. I have no eyes into each iteration (except via `.map(v=>{console.log(v);return v})`) so being frequently reminded of types is nice. 
+Using TypeScript `type`s is quite nice for reasoning and type-checking. Last year I really enjoyed using Go for that reason; the type hints allow me to constantly verify or be reminded of what I'm working with. I have no eyes into each iteration (except via `.map(v=>{console.log(v);return v})`) so being frequently reminded of types is nice.
 
 I do have to say though, TS/JS don't make it very easy to debug within chaining methods, and I occasionally have to work with an entire paragraph of red squiggles until some portion of implementation is complete. While it's nice to play legos with return types and argument types before actual implementation, it is pretty jarring to work with this volume of red squiggles.
 
 ## Description
 
-```
+```txt
 --- Day 2: Dive! ---
 Now, you need to figure out how to pilot this thing.
 

@@ -6,7 +6,7 @@ I'm craving more functional programming tools, but all I'm finding built-in are 
 
 ## Description
 
-```
+```txt
 --- Day 3: Binary Diagnostic ---
 The submarine has been making some odd creaking noises, so you ask it to produce a diagnostic report just in case.
 
