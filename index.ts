@@ -35,12 +35,12 @@ const day4 = (): void => {
   console.log(d4.part2(inputs))
 }
 
-// import * as d5 from './day5/solution'
-// const day5 = (): void => {
-//   const inputs = readInputs('./day5/inputs.txt')
-//   console.log(d5.part1(inputs))
-//   console.log(d5.part2(inputs))
-// }
+import * as d5 from './day5/solution'
+const day5 = (): void => {
+  const inputs = readInputs('./day5/inputs.txt')
+  console.log(d5.part1(inputs))
+  console.log(d5.part2(inputs))
+}
 
 // import * as d6 from './day6/solution'
 // const day6 = (): void => {
@@ -186,8 +186,8 @@ const day4 = (): void => {
 // day1()
 // day2()
 // day3()
-day4()
-// day5()
+// day4()
+day5()
 // day6()
 // day7()
 // day8()
