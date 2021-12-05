@@ -1,3 +1,11 @@
+# Day 3
+
+I wish there were easier ways to memoize in Typescript! I looked into implementations and even tried to make my own, since the `onesDelta` method in particular was so heavyweight. This is something I'm finding more and more to be true - functional programming in languages that don't easily support it make up for it in performance hits. (Sample size of 1, maybe 2 or 3 if you count Python and Ruby.)
+
+I'm craving more functional programming tools, but all I'm finding built-in are `map`, `reduce`, `filter`, and ternary operators.
+
+## Description
+
 ```
 --- Day 3: Binary Diagnostic ---
 The submarine has been making some odd creaking noises, so you ask it to produce a diagnostic report just in case.

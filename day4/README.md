@@ -1,3 +1,11 @@
+# Day 4
+
+I'm starting to feel pretty limited in terms of what JS/TS allows me to do with built-in methods. There's a lot of friction around passing data around or modifying only one part of a state object, resulting in too many `reduce`s than I'm comfortable with. I was definitely hacking my way through part 2 in the end.
+
+I might stop this one-liner nonsense if Day 5 gets too frustrating to implement. I'm thinking more and more that JS/TS just don't have the tools (built in) for functional programming.
+
+## Description
+
 ```
 --- Day 4: Giant Squid ---
 You're already almost 1.5km (almost a mile) below the surface of the ocean, already so deep that you can't see any sunlight. What you can see, however, is a giant squid that has attached itself to the outside of your submarine.
