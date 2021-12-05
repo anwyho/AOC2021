@@ -32,7 +32,7 @@ import * as d4 from './day4/solution'
 const day4 = (): void => {
   const inputs = readInputs('./day4/inputs.txt')
   console.log(d4.part1(inputs))
-  // console.log(d4.part2(inputs))
+  console.log(d4.part2(inputs))
 }
 
 // import * as d5 from './day5/solution'
