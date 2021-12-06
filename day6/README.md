@@ -2,7 +2,9 @@
 
 Just coded this alongside @michael-a-wong and got in the top 6660 people to complete both parts. He gave me the idea of using a map to describe how many fishes were in at each day! I left my code exactly as it was finished, after commenting out the `console.log`s and a `return ''` from my stifling of part 1. The last ten minutes of part 2 were spent debugging things I thought were code issues; they turned out to be input issues, like my day loop being `80` or me still using the example input.
 
-No one-liner today. They've been taking up so much time...
+I really liked this one! The first part was "understand the logic" and then the second was "make it faster". These problems show the effects of time-complexity analysis in "real world" situations.
+
+And no one-liner today lol. They've been taking up so much time...
 
 ## Description
 
