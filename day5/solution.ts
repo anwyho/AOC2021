@@ -22,7 +22,14 @@ const parseLine = (lineStr: string): Line => <Line> {
 const horizontalOrVertical = (line: Line): boolean => 
   line.a.x === line.b.x || line.a.y === line.b.y
 
-export const part1 = (inputs: Array<string>): string => 
+export const part1 = (inputs: Array<string>): string => { 
+  const lines = inputs.map(parseLine).filter(horizontalOrVertical)
+  
+  return ''
+}
+
+
+export const part1Dud = (inputs: Array<string>): string => 
   inputs.map(parseLine).filter(horizontalOrVertical).reduce(
     (covered: Map<Point, number>, line: Line): Map<Point, number> => {
       console.log(line.a.x, line.a.y, line.b.x, line.b.y)
