@@ -1,7 +1,7 @@
 # ❄️ Advent of Code 2021
 
-![Days completed](https://img.shields.io/badge/days%20completed-4-green)
-![Stars count](https://img.shields.io/badge/stars%20⭐-8-yellow)
+![Days completed](https://img.shields.io/badge/days%20completed-5-green)
+![Stars count](https://img.shields.io/badge/stars%20⭐-10-yellow)
 
 Merry Scriptsmas!
 
