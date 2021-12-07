@@ -1,4 +1,3 @@
-
 interface Point { 
   x: number
   y: number
@@ -22,12 +21,7 @@ const parseLine = (lineStr: string): Line => <Line> {
 const horizontalOrVertical = (line: Line): boolean => 
   line.a.x === line.b.x || line.a.y === line.b.y
 
-export const part1 = (inputs: Array<string>): string => { 
-  const lines = inputs.map(parseLine).filter(horizontalOrVertical)
-  
-  return ''
-}
-
+const printPoint = (point: Point): string => `${point.x} ${point.y}`
 
 export const part1Dud = (inputs: Array<string>): string => 
   inputs.map(parseLine).filter(horizontalOrVertical).reduce(
@@ -51,4 +45,78 @@ export const part1Dud = (inputs: Array<string>): string =>
     new Map<Point, number>()
   ).toString()
 
-export const part2 = (inputs: Array<string>): string => { return inputs[0] }
+export const part2 = (inputs: Array<string>): string => { 
+  const lines = inputs.map(parseLine)
+  const pointHist = new Map<string, number>()
+
+  lines.forEach((line: Line) => {
+    // verical line
+    if (line.a.x === line.b.x) {
+      const [minY, maxY] = [Math.min(line.a.y, line.b.y), Math.max(line.a.y, line.b.y)]
+      for (let y = minY; y <= maxY; y++) {
+        const point = <Point> {x: line.a.x, y: y}
+        pointHist.set(printPoint(point), (pointHist.get(printPoint(point)) ?? 0) + 1)
+      }
+    } else if (line.a.y === line.b.y) {
+      const [minX, maxX] = [Math.min(line.a.x, line.b.x), Math.max(line.a.x, line.b.x)]
+      for (let x = minX; x <= maxX; x++) {
+        const point = <Point> {x: x, y: line.a.y}
+        pointHist.set(printPoint(point), (pointHist.get(printPoint(point)) ?? 0) + 1)
+      }
+    } else {
+      const [leftPoint, rightPoint] = [line.a, line.b].sort((a, b) => a.x - b.x)
+      const descending = leftPoint.y > rightPoint.y
+      let flag = false
+      for (
+        let [x, y] = [leftPoint.x, leftPoint.y]; 
+        descending ? y >= rightPoint.y : y <= rightPoint.y; 
+        (descending ? y-- : y++) && x++
+      ) {
+        flag = true
+        const point = <Point> {x, y}
+        pointHist.set(printPoint(point), (pointHist.get(printPoint(point)) ?? 0) + 1)
+      }
+
+      if (flag === false) {
+        console.log(printPoint(leftPoint), printPoint(rightPoint))
+      }
+    }
+  })
+
+  let sum = 0
+  for (const freq of pointHist.values()) {
+    if (freq > 1) sum += 1
+  }
+  
+  return  sum.toString()
+}
+
+  
+export const part1 = (inputs: Array<string>): string => { 
+  const lines = inputs.map(parseLine).filter(horizontalOrVertical)
+  const pointHist = new Map<string, number>()
+
+  lines.forEach((line: Line) => {
+    // verical line
+    if (line.a.x === line.b.x) {
+      const [minY, maxY] = [Math.min(line.a.y, line.b.y), Math.max(line.a.y, line.b.y)]
+      for (let y = minY; y <= maxY; y++) {
+        const point = <Point> {x: line.a.x, y: y}
+        pointHist.set(printPoint(point), (pointHist.get(printPoint(point)) ?? 0) + 1)
+      }
+    } else {
+      const [minX, maxX] = [Math.min(line.a.x, line.b.x), Math.max(line.a.x, line.b.x)]
+      for (let x = minX; x <= maxX; x++) {
+        const point = <Point> {x: x, y: line.a.y}
+        pointHist.set(printPoint(point), (pointHist.get(printPoint(point)) ?? 0) + 1)
+      }
+    }
+  })
+
+  let sum = 0
+  for (const freq of pointHist.values()) {
+    if (freq > 1) sum += 1
+  }
+  
+  return  sum.toString()
+}

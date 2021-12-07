@@ -42,12 +42,12 @@ const day5 = (): void => {
   console.log(d5.part2(inputs))
 }
 
-// import * as d6 from './day6/solution'
-// const day6 = (): void => {
-//   const inputs = readInputs('./day6/inputs.txt')
-//   console.log(d6.part1(inputs))
-//   console.log(d6.part2(inputs))
-// }
+import * as d6 from './day6/solution'
+const day6 = (): void => {
+  const inputs = readInputs('./day6/inputs.txt')
+  console.log(d6.part1(inputs))
+  console.log(d6.part2(inputs))
+}
 
 // import * as d7 from './day7/solution'
 // const day7 = (): void => {

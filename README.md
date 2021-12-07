@@ -1,11 +1,13 @@
 # ❄️ Advent of Code 2021
 
-![Days completed](https://img.shields.io/badge/days%20completed-5-green)
-![Stars count](https://img.shields.io/badge/stars%20⭐-10-yellow)
+![Days completed](https://img.shields.io/badge/days%20completed-6-green)
+![Stars count](https://img.shields.io/badge/stars%20⭐-12-yellow)
 
 Merry Scriptsmas!
 
 My goal this year is to solve each puzzle with only implicit return statements. That means everything will be pure functions! It's a pretty obnoxious goal, but so far, I've learned a lot about `map`ing and `reduce`ing. It's also interesting to see patterns cropping up, such as using `reduce` to modify specific values within an array, or using arrays to manipulate multiple variables simultaneously.
+
+update: As of Day 5, the one-liners are over :cry:
 
 ## One Liners
 
