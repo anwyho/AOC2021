@@ -1,7 +1,7 @@
 # ❄️ Advent of Code 2021
 
-![Days completed](https://img.shields.io/badge/days%20completed-6-green)
-![Stars count](https://img.shields.io/badge/stars%20⭐-12-yellow)
+![Days completed](https://img.shields.io/badge/days%20completed-7-green)
+![Stars count](https://img.shields.io/badge/stars%20⭐-15-yellow)
 
 Merry Scriptsmas!
 
@@ -46,4 +46,10 @@ ins => ins[0].split(',').map(n => parseInt(n)).reduce(([cards, prevNumber, winni
 
 ```ts
 ins => ins[0].split(',').map(n => parseInt(n)).reduce(([cards, prevNumber, winningCardValue], currentNumber) => cards.length === 0 ? [cards, prevNumber, winningCardValue] : cards.map(card => card.map(space => space === currentNumber ? -1 : space)).reduce((acc, card, i, filledCards) => [filledCards, ...(Array.from({length: Math.sqrt(card.length)}, (_val, sideIndex) => card.slice(sideIndex*Math.sqrt(card.length), sideIndex*Math.sqrt(card.length)+Math.sqrt(card.length)).every(space => space === -1) || card.filter((_val, cardIndex) => cardIndex % Math.sqrt(card.length) === sideIndex).every((space) => space === -1)).some(isBingo => isBingo) ? [currentNumber, card.filter(space => space != -1).reduce((sum, space) => sum + space)] : [acc[1], acc[2]])], [[], currentNumber, winningCardValue]).map((val, i) => i === 0 ? val.filter(card => !hasBingo(card)) : val), [ins.slice(2).reduce(([cardsAcc, cardIndex], line) => line === '' ? [cardsAcc.concat([[]]), cardIndex + 1] : [[...cardsAcc.slice(0, cardIndex), cardsAcc[cardIndex].concat(line.trim().split(/\s+/).map(s => parseInt(s))), ...cardsAcc.slice(cardIndex+1)], cardIndex], [[[]], 0])[0], -1, -1]).slice(1).reduce((winningNumber, winningCardValue) => winningNumber * winningCardValue).toString()
+```
+
+### Day 8
+
+```ts
+ins => ins.flatMap(line => line.split('|')[1].split(' ')).filter(val => [2, 3, 4, 7].includes(val.length)).length.toString()
 ```

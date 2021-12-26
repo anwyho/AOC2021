@@ -1,6 +1,6 @@
 // solutions.ts template
 export const part1 = (inputs: Array<string>): string => { return inputs[0] }
-export const part2 = (inputs: Array<string>): string => { return inputs[0] }
+export const part2 = (inputs: Array<string>): string => { return '' }
 
 import * as fs from 'fs'
 const readInputs = (path: string): Array<string> => 
@@ -56,12 +56,12 @@ const day7 = (): void => {
   console.log(d7.part2(inputs))
 }
 
-// import * as d8 from './day8/solution'
-// const day8 = (): void => {
-//   const inputs = readInputs('./day8/inputs.txt')
-//   console.log(d8.part1(inputs))
-//   console.log(d8.part2(inputs))
-// }
+import * as d8 from './day8/solution'
+const day8 = (): void => {
+  const inputs = readInputs('./day8/inputs.txt')
+  // console.log(d8.part1(inputs))
+  console.log(d8.part2(inputs))
+}
 
 // import * as d9 from './day9/solution'
 // const day9 = (): void => {
@@ -189,8 +189,8 @@ const day7 = (): void => {
 // day4()
 // day5()
 // day6()
-day7()
-// day8()
+// day7()
+day8()
 // day9()
 // day10()
 // day11()
